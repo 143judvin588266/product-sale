@@ -8,6 +8,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.Transient;
 
 @Entity
 @Table(name="product_table")
@@ -21,6 +22,7 @@ public class Product {
 	private String description;
 	@Column
 	private double price;
+@Transient	
 private List<Sale>saleList;
 	
 

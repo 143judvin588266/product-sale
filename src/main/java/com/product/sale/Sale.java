@@ -2,10 +2,20 @@ package com.product.sale;
 
 	import java.util.Date;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+@Entity
+@Table(name="sale_table")
 	public class Sale {
+	@Id
 	private int id;
+	@Column
 	private int productId; 
+	@Column
 	private int quantity;
+	@Column
 	private Date saleDate;
 
 	public int getId() {

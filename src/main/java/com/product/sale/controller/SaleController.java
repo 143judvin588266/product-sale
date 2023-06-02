@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -35,20 +36,20 @@ public class SaleController {
 		return saleService.getProduct();
 	}
  
-	@GetMapping("/getById")
-	public Product getProduct(@RequestParam(name = "id") int id) {
+	@GetMapping("/getById/{id}")
+	public Product getProduct(@PathVariable("id") int id) {
 		return saleService.getProductById(id);
 
 	}
 
-	@PutMapping("/update")
-	public Product updateProduct(@RequestParam(name = "id") int id, @RequestBody Product product) {
+	@PutMapping("/update/{id}")
+	public Product updateProduct(@PathVariable("id") int id, @RequestBody Product product) {
 		return saleService.updateProduct(id, product);
 
 	}
 
-	@DeleteMapping("/delete")
-	public ResponseEntity<String> deleteProduct(@RequestParam(name = "id") int id) {
+	@DeleteMapping("/delete/{id}")
+	public ResponseEntity<String> deleteProduct(@PathVariable( "id") int id) {
 		saleService.deleteProduct(id);
 return new ResponseEntity<String>("Product deleted Successfully",HttpStatus.OK);
 	}
